@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+</head>
+<style>
+    .scene {
+        position: absolute;
+        width: 100%;
+        height: 70%;
+        top: 20vh;
+        left: 0;
+        min-height: 360px;
+    }
+
+    .parallax {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+    }
+
+    .parallax:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 90%);
+    }
+
+    .parallaxBackground {
+        position: absolute;
+        width: 110vw;
+        height: 75vh;
+        top: -5% !important;
+        left: -5% !important;
+        background: url("../images/BG.jpg") 50% 100% / cover no-repeat;
+    }
+
+    .clouds {
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+
+    .clouds span {
+        position: absolute;
+        display: inline-block;
+    }
+
+    .parallaxCloud1 {
+        top: -1% !important;
+        /* or in vh vw */
+        left: -1% !important;
+    }
+
+    .parallaxCloud1 span {
+        width: 225px;
+        height: 82px;
+        background: url("../images/cloud1.png") 0 0 / 100% no-repeat;
+    }
+
+    .balloons {
+        position: absolute;
+        display: inline-block;
+        transform-origin: 50%;
+    }
+
+    .balloons span {
+        position: absolute;
+        display: inline-block;
+        transform-origin: 50%;
+    }
+
+    .anim1 {
+        animation: float 5s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0%);
+        }
+
+        50% {
+            transform: translateY(4%);
+        }
+
+        100% {
+            transform: translateY(0%);
+        }
+    }
+
+    .parallaxBalloon1 {
+        top: 8% !important;
+        left: 12% !important;
+    }
+
+    .parallaxBalloon1 span {
+        width: 94px;
+        height: 140px;
+        background: url("../images/balloonLove.png") 0 0 / 100% no-repeat;
+    }
+</style>
+
+<body>
+    <section class="main">
+        <div class="scene">
+            <!--all child elements will become moving objects, the layers-->
+            <div class="parallax" id='parallax'>
+                <!--Background, also in parallax-->
+                <div class="parallaxBackground" data-depth="0.1"></div>
+                <div class="parallax" id='parallax'>
+                    <div class="parallaxBackground" data-depth="0.1"></div>
+                    <div class="clouds parallaxCloud1" data-depth="0.15"><span></span></div>
+                    <div class="clouds parallaxCloud2" data-depth="0.3"><span></span></div>
+                    <div class="clouds parallaxCloud3" data-depth="0.25"><span></span></div>
+                    <div class="clouds parallaxCloud4" data-depth="0.23"><span></span></div>
+                    <div class="clouds parallaxCloud5" data-depth="0.29"><span></span></div>
+
+                    <div class="balloons parallaxBalloon1" data-depth="0.4"><span class="anim1"></span></div>
+                    <div class="balloons parallaxBalloon2" data-depth="0.6"><span class="anim2"></span></div>
+                    <div class="balloons parallaxBalloon3" data-depth="0.7"><span class="anim1"></span></div>
+                    <div class="baloons parallaxBaloon4" data-depth="0.9"><span class="anim3"></span></div>
+                    <div class="parallaxCathedral" data-depth="0.35"><span></span>
+                        <div>
+                            <script>let ourParallax = document.getElementById('parallax');
+                                let parallaxInstance = new Parallax(ourParallax);</script>
+</body>
+
+</html>
